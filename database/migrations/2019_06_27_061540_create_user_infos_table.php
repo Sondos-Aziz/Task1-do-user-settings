@@ -25,13 +25,13 @@ class CreateUserInfosTable extends Migration
              $table->string('specialization');
             $table->string('socialStatus');
             $table->string('gender');
-            $table->integer('mobile')->unsigned();
+            $table->string('mobile');
             $table->integer('phone')->unsigned();
             $table->date('dateOfHiring');
             $table->date('dateBirth');
             $table->string('address');
             $table->string('image')->default('deafault.png');
-            $table->timestamps();
+//            $table->timestamps();
         });
     }
 

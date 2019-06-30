@@ -11,4 +11,6 @@ class UserInfo extends Model
         'socialStatus','gender','mobile','dateOfHiring','dateBirth','phone','address','image'
     ];
 
+    public $timestamps = false;
+
 }

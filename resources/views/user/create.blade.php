@@ -94,7 +94,7 @@
                         <div class="col-md-12">
                             <div class="form-group bmd-label-floating">
                                 <label class="control-label">mobile</label>
-                                <input type="number" class="form-control" name="mobile" min="0"  class="@error('mobile'){{$errors->first('mobile')}} @enderror">
+                                <input type="text" class="form-control" name="mobile"   class="@error('mobile'){{$errors->first('mobile')}} @enderror">
                                 @error('mobile')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

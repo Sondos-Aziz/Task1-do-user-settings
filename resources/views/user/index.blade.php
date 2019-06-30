@@ -84,12 +84,12 @@
                             <th>
                                 Image
                             </th>
-                            <th>
-                                Created At
-                            </th>
-                            <th>
-                                Updated At
-                            </th>
+                            {{--<th>--}}
+                                {{--Created At--}}
+                            {{--</th>--}}
+                            {{--<th>--}}
+                                {{--Updated At--}}
+                            {{--</th>--}}
                             <th>
                                 Action
                             </th>
@@ -122,8 +122,8 @@
                                     <td>
                                         <img src =" {{asset('images/' . $item->image)}}" height="100" width="100"/>
                                     </td>
-                                    <td>{{$item->created_at}}</td>
-                                    <td>{{$item->updated_at}}</td>
+                                    {{--<td>{{$item->created_at}}</td>--}}
+                                    {{--<td>{{$item->updated_at}}</td>--}}
                                     <td>
 
                                         <button type="button" class="btn btn-danger btn-sm  deleteClass"
