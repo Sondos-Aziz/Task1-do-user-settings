@@ -17,7 +17,10 @@ class UserController extends Controller
     {
         $users=UserInfo::all();
 
-        return view('user.index',compact('users'));
+//        return view('user.index',compact('users'));
+        return response()->json([
+            'users' => $users,
+        ], 200);
     }
 
     /**
@@ -90,7 +93,10 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('user.index')->with('successMsg','User successfully saved');
-
+//        return response()->json([
+//            'user'    => $user,
+//            'successMsg' => ''User successfully saved'
+//        ], 200);
     }
 
     /**
@@ -115,14 +121,14 @@ class UserController extends Controller
         //
     }
 
-    public function  delete( Request $request){
-
-        $id =  $request->input('id');
-        $user = UserInfo::find($id);
-        $user->delete();
-       return "sucess";
-        $user->save();
-}
+//    public function  delete( Request $request){
+//
+//        $id =  $request->input('id');
+//        $user = UserInfo::find($id);
+//        $user->delete();
+//       return "sucess";
+//        $user->save();
+//}
 
     /**
      * Update the specified resource in storage.
@@ -142,12 +148,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-//    public function destroy($id)
-//{
-//    $user = UserInfo::find($id);
-//    $user->delete();
-//
-//    return redirect()->route('user.index')->with('successMsg','user  deleted successfully' );
-//    $user->save();
-//}
+    public function destroy($id)
+{
+    $user = UserInfo::find($id);
+    $user->delete();
+
+    return "sucess";
+    $user->save();
+}
 }

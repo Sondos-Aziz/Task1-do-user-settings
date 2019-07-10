@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('default');
 });
 
-Route::get('deleteUser','UserController@delete')->name('del');
+//Route::get('deleteUser','UserController@delete')->name('del');
 Route::resource('user','UserController');
 
