@@ -15,8 +15,7 @@
         <div class="container-fluid">
             <br class="row">
                 <br class="col-md-12">
-
-            {{--<a href="{{route('user.create')}}" class="btn btn-info">Add new user</a></br></br>--}}
+        <a href="#!create" class="btn btn-info">Add new user</a></br></br>
 
 <div class="card">
     <div class="card-header card-header-primary">

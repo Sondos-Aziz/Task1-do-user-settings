@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\UserInfo;
 use Illuminate\Http\Request;
 use Image;
@@ -31,8 +32,10 @@ class UserController extends Controller
     public function create()
     {
         $users=UserInfo::all();
-        return view('user.create' ,compact('users'));
-
+//        return view('user.create' ,compact('users'));
+        return response()->json([
+            'users'    => $users,
+        ], 200);
     }
 
     /**
@@ -43,6 +46,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+//dd($request);
         $this->validate($request,[
             'firstName'=>'required',
             'secondName'=>'required',
@@ -78,7 +82,7 @@ class UserController extends Controller
         $user->dateBirth =$request->dateBirth;
         $user->socialStatus =$request->get('socialStatus');
       $user->gender =$request->gender;
-
+//        $fileName = null;
         if($request->hasFile('featured_image')) {
             //add the new photo
             $image = $request->file('featured_image');
@@ -86,17 +90,32 @@ class UserController extends Controller
             $location = public_path('images/' . $fileName);
 
             Image::make($image)->resize(100, 200)->save($location);
-            $user->image = $fileName;
-
+            $user->image =$fileName;
         }
-
         $user->save();
+//        $user = User::create([
+//            'firstName' =>request('firstName'),
+//            'secondName' =>request('secondName'),
+//            'thirdName' =>request('thirdName'),
+//            'fourthName' =>request('fourthName'),
+//            'email' =>request('email'),
+//            'idNum' =>request('idNum'),
+//            'functionalNum' =>request('functionalNum'),
+//            'specialization' =>request('specialization'),
+//            'mobile' =>request('mobile'),
+//            'phone' =>request('phone'),
+//            'address' =>request('address'),
+//            'dateOfHiring' =>request('dateOfHiring'),
+//            'dateBirth' =>request('dateBirth'),
+//            'socialStatus' =>request('socialStatus'),
+//            'gender' =>request('gender'),
+//            'image' =>$fileName,
+//        ]);
 
-        return redirect()->route('user.index')->with('successMsg','User successfully saved');
-//        return response()->json([
-//            'user'    => $user,
-//            'successMsg' => ''User successfully saved'
-//        ], 200);
+//        return redirect()->route('user.index')->with('successMsg','User successfully saved');
+        return response()->json([
+            'successMsg' => 'User successfully saved'
+        ], 200);
     }
 
     /**

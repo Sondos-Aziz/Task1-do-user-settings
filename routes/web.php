@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('default');
 });
+//Route::get('/user/create', function () {
+//    return view('default');
+//});
 
 //Route::get('deleteUser','UserController@delete')->name('del');
 Route::resource('user','UserController');
