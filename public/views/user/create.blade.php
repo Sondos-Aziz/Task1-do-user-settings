@@ -18,10 +18,11 @@
             <div class="col-md-6">
 
                 <br><h4 class="card-title text-danger">Add new user</h4></br>
-                 <div class="alert alert-danger" ng-if="errors.length > 0">
-                        <ul>
-                            <li ng-repeat="error in errors">{{ error }}</li>
-                        </ul></div>
+                 <div class="alert alert-danger" ng-if="errors.length > 0"  class="close" data-dismiss="alert" aria-label="Close">
+
+                            <div ng-repeat="error in errors"><i class="material-icons">close</i> {{ error }}</div>
+
+                 </div>
 
                 <form  method="post"  enctype="multipart/form-data">
 
